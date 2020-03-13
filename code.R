@@ -15,7 +15,7 @@ ef.frontier <- function(er = ER, cov.mat = COVMAT, n = 1000, alpha.min = -1, alp
   alpha %>%
     map_dfr(function(alphai){
     eri <-  alphai*er[1] + (1-alphai)*er[2]
-    stdevi <- sqrt(alphai^2*cov.mat[1,1] + (1-alphai)^2*cov.mat[2,2] + 2* abs(alphai*(1-alphai))*cov.mat[1,2])
+    stdevi <- sqrt(alphai^2*cov.mat[1,1] + (1-alphai)^2*cov.mat[2,2] + 2*alphai*(1-alphai)*cov.mat[1,2])
     
     data.frame(alpha = alphai,
                er = eri,
